@@ -71,7 +71,7 @@ const Cart = () => {
     }
 
     const options = {
-      key: "rzp_test_1dRKNhvcJnqWY7",
+      key: process.env.REACT_APP_RAZORPAY_KEY_ID,
       currency: "INR",
       amount: amount,
       name: "DealSteal",

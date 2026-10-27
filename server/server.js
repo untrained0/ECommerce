@@ -17,8 +17,8 @@ app.use(bodyParser.json());
 
 app.post("/cart", async (req, res) => {
   const razorpay = new Razorpay({
-    key_id: "rzp_test_1dRKNhvcJnqWY7",
-    key_secret: "ThECYGiRbte1rv0ZlbQuKGUA",
+    key_id: process.env.razorpay_key_id,
+    key_secret: process.env.razorpay_key_secret,
   });
 
   const options = {
@@ -46,8 +46,8 @@ app.get("/payment/:paymentId", async (req, res) => {
   const { paymentId } = req.params;
 
   const razorpay = new Razorpay({
-    key_id: "rzp_test_1dRKNhvcJnqWY7",
-    key_secret: "ThECYGiRbte1rv0ZlbQuKGUA",
+    key_id: process.env.razorpay_key_id,
+    key_secret: process.env.razorpay_key_secret,
   });
 
   try {
@@ -70,7 +70,7 @@ app.get("/payment/:paymentId", async (req, res) => {
 });
 
 app.post("/verification", (req, res) => {
-  const secret = "GX6QaXTYlfCtCmFkXLVlJauA";
+  const secret = process.env.razorpay_webhook_secret;
 
   console.log(req.body);
 
